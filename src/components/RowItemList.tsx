@@ -1,19 +1,9 @@
 import {
   IonAlert,
-  IonButton,
-  IonButtons,
-  IonCard,
-  IonCardContent,
-  IonContent,
-  IonHeader,
-  IonInput,
   IonItem,
   IonLabel,
-  IonModal,
   IonNote,
-  IonTitle,
-  IonToast,
-  IonToolbar
+  IonToast
 } from '@ionic/react';
 import { RowItem } from '../data/rowitem';
 import './RowItemList.css';
@@ -30,6 +20,14 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
   const [isError, setIsError] = useState(false)
   if (rowItem && rowItem?.name?.toLowerCase().indexOf(searchText?.toLowerCase()) < 0) return <></>;
   var color = randomColor({ luminosity: 'dark' });  
+
+  const processClick = () => {
+    if(rowItem.passcode) {
+      setOpen(true);
+    } else {
+      window && window.open(rowItem.url, '_blank');
+    }
+  }
   return (
     <>
       <IonToast
@@ -65,13 +63,13 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
                   setIsError(true);
                   return false;
                 }
-                console.log('Confirm Ok',alertData.passcode);
+                // console.log('Confirm Ok',alertData.passcode);
                 window && window.open(rowItem.url, '_blank');
               }
             }
           ]}
         />
-      <IonItem lines={'full'} detail={true} button={true} target="_blank" onClick={() => setOpen(true)}>
+      <IonItem lines={'full'} detail={true} button={true} target="_blank" disabled={!rowItem.isactive} onClick={() => processClick()}>
         <div slot="start"><Avatar name={rowItem.name} round={true} size="30px" style={{ paddingLeft: '1rem' }} color={color} /></div>
         <IonLabel className="ion-text-wrap">
           <h2>

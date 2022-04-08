@@ -36,7 +36,7 @@ const Home: React.FC = () => {
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar color='primary'>
-          <IonTitle>Webmarks</IonTitle>
+          <IonTitle>{process.env.REACT_APP_TITLE || 'Webmarks'}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -47,14 +47,14 @@ const Home: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-            Webmarks
+              {process.env.REACT_APP_TITLE || 'Webmarks'}
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} showCancelButton="never" animated placeholder="Filter Items"></IonSearchbar>
         <IonList>
-          {rowItems && rowItems.length>0 && rowItems.map(r => <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
-          {rowItems && rowItems.length<=0 && 
+          {rowItems && rowItems.length > 0 && rowItems.map(r => <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
+          {rowItems && rowItems.length <= 0 &&
             <>
               <SkeletonItem />
               <SkeletonItem />

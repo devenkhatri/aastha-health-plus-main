@@ -6,7 +6,7 @@ export interface RowItem {
   id: string;
   url: string;
   passcode: string;
-  isdesktopmode?: boolean;
+  isactive?: boolean;
 }
 
 const rowItems: RowItem[] = [];
@@ -19,7 +19,7 @@ export const getRowItems = async () => {
       source: record.get('Source'),
       url: record.get('URL'),
       passcode: record.get('Passcode'),
-      isdesktopmode: !!record.get('IsDesktopMode?'),
+      isactive: !!record.get('IsActive'),
       id: record.id
     }    
     console.log('Retrieved', item);
