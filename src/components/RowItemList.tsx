@@ -26,10 +26,10 @@ interface RowItemListProps {
 }
 var randomColor = require('randomcolor');
 const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
-  if (rowItem && rowItem?.name?.toLowerCase().indexOf(searchText?.toLowerCase()) < 0) return <></>;
-  var color = randomColor({ luminosity: 'dark' });
   const [open, setOpen] = useState(false)
   const [isError, setIsError] = useState(false)
+  if (rowItem && rowItem?.name?.toLowerCase().indexOf(searchText?.toLowerCase()) < 0) return <></>;
+  var color = randomColor({ luminosity: 'dark' });  
   return (
     <>
       <IonToast
