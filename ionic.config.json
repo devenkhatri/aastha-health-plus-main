@@ -1,8 +1,8 @@
 {
-  "name": "webmarks",
+  "name": "zold-committee",
   "integrations": {
     "capacitor": {}
   },
   "type": "react",
-  "id": "com.devengoratela.webmarks"
+  "id": "com.devengoratela.zold.app.committee"
 }

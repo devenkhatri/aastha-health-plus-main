@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Zold Committee</string>
+    <string name="title_activity_main">Zold Committee</string>
+    <string name="package_name">com.devengoratela.zold.app.committee</string>
+    <string name="custom_url_scheme">com.devengoratela.zold.app.committee</string>
+</resources>

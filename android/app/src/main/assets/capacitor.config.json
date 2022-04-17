@@ -1,0 +1,6 @@
+{
+	"appId": "com.devengoratela.zold.app.committee",
+	"appName": "Zold Committee",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
