@@ -20,11 +20,13 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+// import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  require(`./theme/variables${process.env.REACT_APP_COLOR}.css`);
+  return (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -37,6 +39,6 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+)};
 
 export default App;
