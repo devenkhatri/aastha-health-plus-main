@@ -12,7 +12,7 @@ export interface RowItem {
 const rowItems: RowItem[] = [];
 
 export const getRowItems = async () => {
-  const airtableRecords:any = await getAirtableData(process.env.REACT_APP_AIRTABLE_KEY, process.env.REACT_APP_AIRTABLE_BASE, process.env.REACT_APP_AIRTABLE_TABLE,'Grid view','',[])
+  const airtableRecords:any = await getAirtableData(process.env.REACT_APP_AIRTABLE_KEY, process.env.REACT_APP_AIRTABLE_BASE, process.env.REACT_APP_AIRTABLE_TABLE,'Grid view','IsActive=1',[])
   airtableRecords.forEach(function (record: any) {
     const item = {
       name: record.get('Name'),
