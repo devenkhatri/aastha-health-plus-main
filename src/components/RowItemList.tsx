@@ -71,7 +71,7 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
       />
       <IonItem lines={'full'} detail={true} button={true} target="_blank" disabled={!rowItem.isactive} onClick={() => processClick()}>
         <div slot="start" className={`dot dot-${rowItem.passcode?'warning':'secondary'}`}></div>
-        <div slot="start"><Avatar name={rowItem.name} round={true} size="30px" style={{ paddingLeft: '1rem' }} color={color} /></div>
+        <div slot="start" style={{display: "none"}}><Avatar name={rowItem.name} round={true} size="30px" style={{ paddingLeft: '1rem' }} color={color} /></div>
         <IonLabel className="ion-text-wrap">
           <h2>
             <span>{rowItem.name}</span>
