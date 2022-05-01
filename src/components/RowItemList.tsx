@@ -19,10 +19,10 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
   const [open, setOpen] = useState(false)
   const [isError, setIsError] = useState(false)
   if (rowItem && rowItem?.name?.toLowerCase().indexOf(searchText?.toLowerCase()) < 0) return <></>;
-  var color = randomColor({ luminosity: 'dark' });  
+  var color = randomColor({ luminosity: 'dark' });
 
   const processClick = () => {
-    if(rowItem.passcode) {
+    if (rowItem.passcode) {
       setOpen(true);
     } else {
       window && window.open(rowItem.url, '_blank');
@@ -39,37 +39,38 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
         position="top"
       />
       <IonAlert
-          isOpen={open}
-          onDidDismiss={() => setOpen(false)}
-          header={`Verification`}
-          message={'Enter correct passcode to open `'+rowItem.name+'`'}
-          inputs={[
-            {
-              name: 'passcode',
-              type: 'text',
-              placeholder: 'Enter Passcode'                        
-            }
-          ]}
-          buttons={[
-            {
-              text: 'Cancel',
-              role: 'cancel',
-              cssClass: 'secondary',              
-            },
-            {
-              text: 'Verify',
-              handler: (alertData) => {
-                if(alertData.passcode != rowItem.passcode) {
-                  setIsError(true);
-                  return false;
-                }
-                // console.log('Confirm Ok',alertData.passcode);
-                window && window.open(rowItem.url, '_blank');
+        isOpen={open}
+        onDidDismiss={() => setOpen(false)}
+        header={`Verification`}
+        message={'Enter correct passcode to open `' + rowItem.name + '`'}
+        inputs={[
+          {
+            name: 'passcode',
+            type: 'text',
+            placeholder: 'Enter Passcode'
+          }
+        ]}
+        buttons={[
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+          },
+          {
+            text: 'Verify',
+            handler: (alertData) => {
+              if (alertData.passcode != rowItem.passcode) {
+                setIsError(true);
+                return false;
               }
+              // console.log('Confirm Ok',alertData.passcode);
+              window && window.open(rowItem.url, '_blank');
             }
-          ]}
-        />
+          }
+        ]}
+      />
       <IonItem lines={'full'} detail={true} button={true} target="_blank" disabled={!rowItem.isactive} onClick={() => processClick()}>
+        <div slot="start" className={`dot dot-${rowItem.passcode?'warning':'secondary'}`}></div>
         <div slot="start"><Avatar name={rowItem.name} round={true} size="30px" style={{ paddingLeft: '1rem' }} color={color} /></div>
         <IonLabel className="ion-text-wrap">
           <h2>
