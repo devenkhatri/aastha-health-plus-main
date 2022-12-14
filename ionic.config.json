@@ -1,8 +1,8 @@
 {
-  "name": "zold-committee",
+  "name": "asthahealthplus-main",
   "integrations": {
     "capacitor": {}
   },
   "type": "react",
-  "id": "com.devengoratela.zold.app.committee"
+  "id": "com.devengoratela.asthahealthplus.app.main"
 }

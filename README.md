@@ -1,6 +1,4 @@
-# zold-app-gate
-
-### Zold App Gate - Web Bookmarks in single app
+# Aastha Health Plus App Gate - Web Bookmarks in single app
 
 ## To Build Mobile App First Time
 1. ```ionic build --prod```

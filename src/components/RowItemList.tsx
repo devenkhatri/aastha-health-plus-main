@@ -1,5 +1,7 @@
 import {
   IonAlert,
+  IonAvatar,
+  IonChip,
   IonItem,
   IonLabel,
   IonNote,
@@ -7,19 +9,18 @@ import {
 } from '@ionic/react';
 import { RowItem } from '../data/rowitem';
 import './RowItemList.css';
-import Avatar from 'react-avatar';
 import { useState } from 'react';
 
 interface RowItemListProps {
   rowItem: RowItem;
   searchText: string;
 }
-var randomColor = require('randomcolor');
+// var randomColor = require('randomcolor');
 const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
   const [open, setOpen] = useState(false)
   const [isError, setIsError] = useState(false)
   if (rowItem && rowItem?.name?.toLowerCase().indexOf(searchText?.toLowerCase()) < 0) return <></>;
-  var color = randomColor({ luminosity: 'dark' });
+  // var color = randomColor({ luminosity: 'dark' });
 
   const processClick = () => {
     if (rowItem.passcode) {
@@ -59,7 +60,7 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
           {
             text: 'Verify',
             handler: (alertData) => {
-              if (alertData.passcode != rowItem.passcode) {
+              if (alertData.passcode !== rowItem.passcode) {
                 setIsError(true);
                 return false;
               }
@@ -70,11 +71,18 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
         ]}
       />
       <IonItem lines={'full'} detail={true} button={true} target="_blank" disabled={!rowItem.isactive} onClick={() => processClick()}>
-        <div slot="start" className={`dot dot-${rowItem.passcode?'danger':'success'}`}></div>
-        <div slot="start" style={{display: "none"}}><Avatar name={rowItem.name} round={true} size="30px" style={{ paddingLeft: '1rem' }} color={color} /></div>
+        <div slot="start" className={`dot dot-${rowItem.passcode ? 'danger' : 'success'}`}></div>
+        <div slot="start">
+          <IonChip>
+            <IonAvatar>
+              <img alt="App Icon" src={`/assets/icon/favicon.png`} />
+            </IonAvatar>
+            <IonLabel>{rowItem.name}</IonLabel>
+          </IonChip>
+        </div>
         <IonLabel className="ion-text-wrap">
           <h2>
-            <span>{rowItem.name}</span>
+            {/* <span>{rowItem.name}</span> */}
             <span className="date">
               <IonNote>{rowItem.source}</IonNote>
             </span>

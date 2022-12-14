@@ -1,5 +1,5 @@
 {
-  "name": "zold-committee",
+  "name": "asthahealthplus-main",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
-    "airtable": "^0.11.2",
+    "airtable": "^0.11.6",
     "ionicons": "^5.4.0",
     "moment": "^2.29.1",
     "randomcolor": "^0.6.2",

@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.devengoratela.zold.app.committee',
-  appName: 'Zold Committee',
+  appId: 'com.devengoratela.asthahealthplus.app.main',
+  appName: 'Aastha Health Plus',
   webDir: 'build',
   bundledWebRuntime: false
 };
